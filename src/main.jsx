@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import Register from "./forms/Register";
 // import Login from "./forms/Login";
-// import DisplayFull from "./components/DisplayFull";
+import DisplayFull from "./components/DisplayFull";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" exact="true" element={<Register />} />
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/home" element={<App />} />
-        {/* <Route path="/all" element={<DisplayFull />} /> */}
+        <Route path="/all" element={<DisplayFull />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
