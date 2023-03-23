@@ -36,7 +36,7 @@ function Register() {
     // } else {
     //   console.log({ email, username, tel, password, confirmPassword });
 
-    fetch("http://127.0.0.1:3000/users", {
+    fetch("http://localhost:8000/credentials", {
       method: "POST",
       mode: "no-cors",
       headers: {
@@ -45,12 +45,15 @@ function Register() {
       body: JSON.stringify({
         username: username,
         email: email,
-        password_digest: password,
+        password: password,
+        confirmPassword: confirmPassword,
+        // password_digest: password,
       }),
     }).then((res) => {
       if (res.ok) {
         return res.json();
       } else {
+        console.log(res.json());
         throw new Error("Network response was not ok.");
       }
     });

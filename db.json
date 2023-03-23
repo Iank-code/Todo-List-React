@@ -1,0 +1,83 @@
+{
+  "credentials": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ],
+  "transactions": [
+    {
+      "id": 2,
+      "description": "esgfdb",
+      "category": "test"
+    },
+    {
+      "id": 3,
+      "description": "South by Southwest Quinoa Bowl at Fresh & Co",
+      "category": "Food"
+    },
+    {
+      "id": 4,
+      "description": "Sunglasses, Urban Outfitters",
+      "category": "Fashion"
+    },
+    {
+      "id": 5,
+      "description": "Venmo, Alice Pays you for Burrito",
+      "category": "Food"
+    },
+    {
+      "id": 6,
+      "description": "Chipotle",
+      "category": "Food"
+    },
+    {
+      "id": 7,
+      "description": "Birthday Check from Grandma",
+      "category": "Gift"
+    },
+    {
+      "id": 8,
+      "description": "Lyft Ride",
+      "category": "Transportation"
+    },
+    {
+      "id": 9,
+      "description": "Paycheck from Bob's Burgers",
+      "category": "Income"
+    },
+    {
+      "id": 10,
+      "description": "Tickets, Flatiron Multiplex Cinemas",
+      "category": "Entertainment"
+    },
+    {
+      "id": 11,
+      "description": "MTA Vending Machine: MetroCard",
+      "category": "Transportation"
+    },
+    {
+      "id": 12,
+      "description": "Venmo, Pay Roommate for Rent",
+      "category": "Housing"
+    },
+    {
+      "description": "Office lunch",
+      "category": "Food",
+      "id": 13
+    },
+    {
+      "description": "Office lunch Wednesday",
+      "category": "Food",
+      "id": 14
+    },
+    {
+      "username": "kennedy",
+      "email": "kennedy@gmail.com",
+      "password": "kennedy",
+      "id": 15
+    }
+  ]
+}
