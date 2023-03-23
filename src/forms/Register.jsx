@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import UsePost from "../hooks/UsePost";
 // import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -9,14 +10,21 @@ function Register() {
 
   // For checking if password && confirmPassword matches
   //   const [error, setError] = useState("");
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
 
   const gotoLoginPage = () => {
-    console.log('works')
+    console.log("works");
     // navigate("/login");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log({
+      email: email,
+      username: username,
+      password: password,
+      confirmPassword: confirmPassword,
+    });
+
     // navigate("/home");
 
     // if (password !== confirmPassword) {
@@ -28,35 +36,46 @@ function Register() {
     // } else {
     //   console.log({ email, username, tel, password, confirmPassword });
 
-    //   fetch("https://sinatra-web-app.onrender.com/register", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       name: username,
-    //       email: email,
-    //       password: password,
-    //       phone_number: tel,
-    //     }),
-    //   })
-    //     .then((res) => {
-    //       if (res.ok) {
-    //         return res.json();
-    //       } else {
-    //         throw new Error("Network response was not ok.");
-    //       }
-    //     })
-    //     .then((data) => {
-    //       console.log(data);
-    //       alert("Registration successful.");
-    //       navigate("/home");
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error:", error);
-    //       alert("Registration failed. Please try again.");
-    //     });
+    fetch("http://127.0.0.1:3000/users", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password_digest: password,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    });
+    // .then((data) => {
+    //   console.log(data);
+    //   alert("Registration successful.");
+    //   navigate("/home");
+    // })
+    // .catch((error) => {
+    //   console.error("Error:", error);
+    //   alert("Registration failed. Please try again.");
+    // });
 
+    // }
+    // const { errors } = UsePost({
+    //   url: "http://127.0.0.1:3000/users",
+    //   body: {
+    // email: email,
+    // username: username,
+    // password_digest: password
+    //     // confirmPassword: confirmPassword,
+    //   },
+    // });
+    // if (errors) {
+    //   return <p>An error occurred: {error.message}</p>;
     // }
   };
 
@@ -89,6 +108,7 @@ function Register() {
           type="text"
           id="username"
           name="username"
+          minLength={5}
           value={username}
           required
           onChange={(e) => setUsername(e.target.value)}
@@ -98,7 +118,6 @@ function Register() {
           type="password"
           name="password"
           id="password"
-          minLength={8}
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -108,7 +127,6 @@ function Register() {
           type="password"
           name="confirm password"
           id="confirmpassword"
-          minLength={8}
           required
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
