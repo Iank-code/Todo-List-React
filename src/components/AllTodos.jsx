@@ -11,7 +11,7 @@ function AllTodos({ data }) {
   const [isChosen, setIsChosen] = useState(false);
 
   function handleClick(x) {
-    console.log(x);
+    // console.log(x);
     // setSelectedData(data);
     setIsChosen(!isChosen);
     // navigate("/all");
@@ -26,6 +26,7 @@ function AllTodos({ data }) {
 
   return (
     <div>
+      
       <h1 onClick={() => handleClick(data)}>{data.category}</h1>
 
       {isChosen ? <Chosen data={data} /> : null}

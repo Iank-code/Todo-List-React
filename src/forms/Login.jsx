@@ -9,19 +9,21 @@ function Login() {
       <form onSubmit={LoginToHome}>
         <h1>Login</h1>
         <label>
-          Username: <input type="text" />
+          Username: <input autoComplete="off" type="text" />
         </label>
         <label>
-          Email: <input type="email" />
+          Email: <input autoComplete="off" type="email" />
         </label>
         <label>
-          Password: <input type="password" />
+          Password: <input autoComplete="off" type="password" />
         </label>
 
         <button type="submit">Login</button>
       </form>
 
-      <p>Don't have an account? <Link to="..">Here</Link> </p>
+      <p>
+        Don't have an account? <Link to="..">Here</Link>{" "}
+      </p>
     </>
   );
 }

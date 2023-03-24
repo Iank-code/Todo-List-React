@@ -37,11 +37,13 @@ function EditText({ id }) {
           type="text"
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
+          autoComplete="off"
         />
       </label>
       <label>
         Description:{" "}
         <input
+          autoComplete="off"
           type="text"
           value={newDescription}
           onChange={(e) => setNewDescription(e.target.value)}

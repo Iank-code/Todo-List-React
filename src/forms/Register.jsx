@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UsePost from "../hooks/UsePost";
+import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -12,10 +13,6 @@ function Register() {
   //   const [error, setError] = useState("");
   //   const navigate = useNavigate();
 
-  const gotoLoginPage = () => {
-    console.log("works");
-    // navigate("/login");
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
@@ -99,6 +96,7 @@ function Register() {
       <form className="signup__form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email Address</label>
         <input
+          autoComplete="off"
           type="email"
           name="email"
           id="email"
@@ -108,6 +106,7 @@ function Register() {
         />
         <label htmlFor="username">Username</label>
         <input
+          autoComplete="off"
           type="text"
           id="username"
           name="username"
@@ -118,6 +117,7 @@ function Register() {
         />
         <label htmlFor="password">Password</label>
         <input
+          autoComplete="off"
           type="password"
           name="password"
           id="password"
@@ -127,6 +127,7 @@ function Register() {
         />
         <label htmlFor="confirm password">Confirm Password</label>
         <input
+          autoComplete="off"
           type="password"
           name="confirm password"
           id="confirmpassword"
@@ -138,13 +139,9 @@ function Register() {
         <button>SIGN UP</button>
         <p>
           Already have an account?{" "}
-          <span
-            className="link"
-            onClick={gotoLoginPage}
-            style={{ color: "red", cursor: "pointer" }}
-          >
+          <Link to="/login" style={{ color: "red", cursor: "pointer" }}>
             Login
-          </span>
+          </Link>
         </p>
       </form>
     </div>

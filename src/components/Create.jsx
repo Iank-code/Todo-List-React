@@ -1,16 +1,27 @@
+import { Link } from "react-router-dom";
+
 function Create() {
-    return (
-      <div>
-        <h1>Create Todo</h1>
+  const CreateTodo = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <div>
+      <Link to="/home">Back</Link>
+      <h1>Create Todo</h1>
+
+      <form onSubmit={CreateTodo}>
         <label>
-          Name: <input type="text" />
+          Name: <input type="text" autoComplete="off" />
         </label>
 
         <label>
-          Description: <input type="text" />
+          Description: <input autoComplete="off" type="text" />
         </label>
-      </div>
-    );
+
+        <input type="submit" value="Create Todo" style={{cursor: "pointer"}} />
+      </form>
+    </div>
+  );
 }
 
 export default Create;

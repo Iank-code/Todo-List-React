@@ -1,6 +1,7 @@
 import "./App.css";
 import AllTodos from "./components/AllTodos";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState(null);
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <div>
+        <Link to='/create'>Add Todo</Link>
         {data
           ? data.map((r, index) => (
               // <h1
