@@ -18,8 +18,14 @@ function Create() {
           Description: <input autoComplete="off" type="text" />
         </label>
 
-        <input type="submit" value="Create Todo" style={{cursor: "pointer"}} />
+        <input
+          type="submit"
+          value="Create Todo"
+          style={{ cursor: "pointer" }}
+        />
       </form>
+
+      
     </div>
   );
 }

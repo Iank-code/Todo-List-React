@@ -17,9 +17,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" exact="true" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<App />} />
+        <Route path="/home" element={<App />}>
+          <Route path="/home/:id" element={<DisplayFull />} />
+        </Route>
         <Route path="/create" element={<Create />} />
-        <Route path="/all" element={<DisplayFull />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

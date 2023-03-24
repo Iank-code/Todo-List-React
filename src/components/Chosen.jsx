@@ -1,21 +1,21 @@
 import { useState } from "react";
 
 function EditText({ id }) {
-  const [newTitle, setNewTitle] = useState("");
-  const [newDescription, setNewDescription] = useState("");
+  const [newTodo, setNewTodo] = useState("");
+  const [newCompleted, setNewCompleted] = useState("");
   const saveData = (e) => {
     e.preventDefault();
     const body = {
-      title: newTitle,
-      description: newDescription,
+      todo: newTodo,
+      completed: newCompleted,
     };
 
-    fetch(`http://localhost:8000/transactions/${id}`, {
+    fetch(`http://localhost:8000/todos/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        description: newDescription,
-        category: newTitle,
+        completed: newCompleted,
+        todo: newTodo,
       }),
     })
       .then((res) => {
@@ -32,21 +32,21 @@ function EditText({ id }) {
   return (
     <form onSubmit={saveData}>
       <label>
-        Title:{" "}
+        Todo:{" "}
         <input
           type="text"
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
           autoComplete="off"
         />
       </label>
       <label>
-        Description:{" "}
+        completed:{" "}
         <input
           autoComplete="off"
           type="text"
-          value={newDescription}
-          onChange={(e) => setNewDescription(e.target.value)}
+          value={newCompleted}
+          onChange={(e) => setNewCompleted(e.target.value)}
         />
       </label>
 
@@ -71,7 +71,7 @@ function Chosen({ data }) {
           fontSize: "20px",
         }}
       >
-        {data.description}
+        {data.completed}
       </p>
 
       <div
@@ -96,7 +96,7 @@ function Chosen({ data }) {
 
           <button
             onClick={() => {
-              fetch(`http://localhost:8000/transactions/${data.id}`, {
+              fetch(`http://localhost:8000/todos/${data.id}`, {
                 method: "DELETE",
               }).then((res) => {
                 if (!res.ok) {

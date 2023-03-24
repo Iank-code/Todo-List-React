@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 function Login() {
   const LoginToHome = (e) => {
     e.preventDefault();
+    console.log(e.target.value)
   };
   return (
     <>
