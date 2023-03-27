@@ -10,7 +10,7 @@ function EditText({ id }) {
       completed: newCompleted,
     };
 
-    fetch(`http://localhost:8000/todos/${id}`, {
+    fetch(`https://json-server-vercel-lake.vercel.app/todos/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
@@ -96,9 +96,12 @@ function Chosen({ data }) {
 
           <button
             onClick={() => {
-              fetch(`http://localhost:8000/todos/${data.id}`, {
-                method: "DELETE",
-              }).then((res) => {
+              fetch(
+                `https://json-server-vercel-lake.vercel.app/todos/${data.id}`,
+                {
+                  method: "DELETE",
+                }
+              ).then((res) => {
                 if (!res.ok) {
                   console.log(res.status);
                 }

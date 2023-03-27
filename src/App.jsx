@@ -7,12 +7,12 @@ function App() {
   const [items, setItems] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/todos")
+    fetch("https://json-server-vercel-lake.vercel.app/todos")
       .then((res) => res.json())
       .then((result) => {
         setItems(result);
       });
-  }, []);
+  }, [items]);
 
   return (
     <div className="App">

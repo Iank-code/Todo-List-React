@@ -14,7 +14,7 @@ function Create() {
       completed: status
     };
 
-    fetch("http://localhost:8000/todos", {
+    fetch("https://json-server-vercel-lake.vercel.app/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
