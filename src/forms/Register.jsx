@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UsePost from "../hooks/UsePost";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -11,7 +11,7 @@ function Register() {
 
   // For checking if password && confirmPassword matches
   //   const [error, setError] = useState("");
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ function Register() {
       confirmPassword: confirmPassword,
     });
 
-    // navigate("/home");
+    navigate("/home");
 
     // if (password !== confirmPassword) {
     //   setError("Passwords do not match");
@@ -33,27 +33,27 @@ function Register() {
     // } else {
     //   console.log({ email, username, tel, password, confirmPassword });
 
-    fetch("http://localhost:8000/credentials", {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-        confirmPassword: confirmPassword,
-        // password_digest: password,
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        console.log(res.json());
-        throw new Error("Network response was not ok.");
-      }
-    });
+    // fetch("http://localhost:8000/credentials", {
+    //   method: "POST",
+    //   mode: "no-cors",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     username: username,
+    //     email: email,
+    //     password: password,
+    //     confirmPassword: confirmPassword,
+    //     // password_digest: password,
+    //   }),
+    // }).then((res) => {
+    //   if (res.ok) {
+    //     return res.json();
+    //   } else {
+    //     console.log(res.json());
+    //     throw new Error("Network response was not ok.");
+    //   }
+    // });
     // .then((data) => {
     //   console.log(data);
     //   alert("Registration successful.");

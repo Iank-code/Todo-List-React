@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate()
   const LoginToHome = (e) => {
     e.preventDefault();
-    console.log(e.target.value)
+    console.log('works')
+    navigate('/home')
   };
   return (
     <>
@@ -19,7 +21,7 @@ function Login() {
           Password: <input autoComplete="off" type="password" />
         </label>
 
-        <button type="submit">Login</button>
+        <button>Login</button>
       </form>
 
       <p>
